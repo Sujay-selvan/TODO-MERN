@@ -43,7 +43,7 @@ function App() {
     e.preventDefault();
     
     // Send POST request
-    await fetch("http://localhost:3000/", {
+    await fetch(`${process.env.REACT_APP_BACKEND_LINK}/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ function App() {
   };
   
   useEffect(() => {
-    fetch("http://localhost:3000/",{ method:'GET',})
+    fetch(`${process.env.REACT_APP_BACKEND_LINK}/`,{ method:'GET',})
       .then((item) => item.json())
       .then((data) => setUsers(data))
       .catch((err) => console.log("Error:", err)); 
@@ -91,7 +91,7 @@ function App() {
   function handleUpdateSubmit(e, id) {
     e.preventDefault();
     
-    fetch(`http://localhost:3000/${id._id}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_LINK}/${id._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -111,7 +111,7 @@ function App() {
   
   // delete functionality
   function handleDelete(Delete){
-    fetch(`http://localhost:3000/${Delete._id}`,{
+    fetch(htt`${process.env.REACT_APP_BACKEND_LINK}/${Delete._id}`,{
       method:'DELETE',
     }) 
     console.log(Delete._id)
