@@ -14,7 +14,7 @@ dotenv.config()
 
 
 async function connectDB(){
- await mongoose.connect(process.env.db_link).then(()=>console.log("DB connect succesfully")).catch((err)=>console.log(err.message))
+ await mongoose.connect(process.env.db_link,{ useNewUrlParser: true, useUnifiedTopology: true }).then(()=>console.log("DB connect succesfully")).catch((err)=>console.log(err.message))
 }
 connectDB()
 
