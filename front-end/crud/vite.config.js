@@ -8,7 +8,7 @@ export default defineConfig({
     react(),
     envCompatible()
   ],
-  envPrefix:"REACT_APP_",
+  envPrefix:"VITE_",
   build: {
     outDir: 'dist', 
   }

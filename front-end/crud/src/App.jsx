@@ -20,8 +20,8 @@ function App() {
     city: '',
   });
 
-  const API_URL = process.env.REACT_APP_BACKEND_LINK;
-  console.log(API_URL)
+  const API_URL = import.meta.env.VITE_APP_BACKEND_LINK;
+  // console.log(API_URL)
 
   // Show the popup to add a new user
   function showPopup() {
@@ -66,7 +66,7 @@ function App() {
   };
   
   useEffect(() => {
-    fetch(`${API_URL}/`,{ method:'GET',})
+     fetch(`${API_URL}`,{ method:'GET',})
       .then((item) => item.json())
       .then((data) => setUsers(data))
       .catch((err) => console.log("Error:", err)); 
@@ -76,14 +76,14 @@ function App() {
     setUpdatePopup(true)
     setUpdatedItem(updateItem)
     setupdateData(updateItem)
-    console.log(updateItem)
+    // console.log(updateItem)
   }
   function removeUpdate(){
     setUpdatePopup(false)
   }
 
   function handleUpdate(e){
-    console.log(e.target.value)
+    // console.log(e.target.value)
     let {name,value} = e.target
     setupdateData({
       ...updateData,
@@ -92,10 +92,10 @@ function App() {
 
   }
 
-  function handleUpdateSubmit(e, id) {
+  async function handleUpdateSubmit(e, id) {
     e.preventDefault();
     
-    fetch(`${API_URL}/${id._id}`, {
+    await fetch(`${API_URL}/${id._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -114,12 +114,14 @@ function App() {
   }
   
   // delete functionality
-  function handleDelete(Delete){
-    fetch(htt`${API_URL}/${Delete._id}`,{
+ async function handleDelete(Delete){
+    await fetch(`${API_URL}/${Delete._id}`,{
       method:'DELETE',
     }) 
-    console.log(Delete._id)
-    setChange(!change)
+    setTimeout(()=>{
+      setChange(!change)
+    },100)
+      
   }
 
   return (
