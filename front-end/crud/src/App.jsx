@@ -66,7 +66,7 @@ function App() {
   };
   
   useEffect(() => {
-     fetch(`${API_URL}`,{ method:'GET',})
+     fetch(`${API_URL}/`,{ method:'GET',})
       .then((item) => item.json())
       .then((data) => setUsers(data))
       .catch((err) => console.log("Error:", err)); 
