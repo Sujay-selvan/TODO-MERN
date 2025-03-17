@@ -20,8 +20,8 @@ function App() {
     city: '',
   });
 
-  // const REACT_APP_BACKEND_LINK=process.env.REACT_APP_BACKEND_LINK;
-  // console.log(REACT_APP_BACKEND_LINK)
+  const API_URL = process.env.REACT_APP_BACKEND_LINK;
+  console.log(API_URL)
 
   // Show the popup to add a new user
   function showPopup() {
@@ -47,7 +47,7 @@ function App() {
     e.preventDefault();
     
     // Send POST request
-    await fetch(`${process.env.REACT_APP_BACKEND_LINK}/`, {
+    await fetch(`${API_URL}/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -66,7 +66,7 @@ function App() {
   };
   
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_BACKEND_LINK}/`,{ method:'GET',})
+    fetch(`${API_URL}/`,{ method:'GET',})
       .then((item) => item.json())
       .then((data) => setUsers(data))
       .catch((err) => console.log("Error:", err)); 
@@ -95,7 +95,7 @@ function App() {
   function handleUpdateSubmit(e, id) {
     e.preventDefault();
     
-    fetch(`${process.env.REACT_APP_BACKEND_LINK}/${id._id}`, {
+    fetch(`${API_URL}/${id._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -115,7 +115,7 @@ function App() {
   
   // delete functionality
   function handleDelete(Delete){
-    fetch(htt`${process.env.REACT_APP_BACKEND_LINK}/${Delete._id}`,{
+    fetch(htt`${API_URL}/${Delete._id}`,{
       method:'DELETE',
     }) 
     console.log(Delete._id)
