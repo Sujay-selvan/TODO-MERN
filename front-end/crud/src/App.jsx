@@ -20,6 +20,9 @@ function App() {
     city: '',
   });
 
+  // const REACT_APP_BACKEND_LINK=process.env.REACT_APP_BACKEND_LINK;
+  // console.log(REACT_APP_BACKEND_LINK)
+
   // Show the popup to add a new user
   function showPopup() {
     setPopup(true);
