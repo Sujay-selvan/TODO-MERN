@@ -72,6 +72,13 @@ function App() {
       .catch((err) => console.log("Error:", err)); 
   },[change]);
 
+  useEffect(() => {
+     fetch(`${API_URL}/`,{ method:'GET',})
+      .then((item) => item.json())
+      .then((data) => setUsers(data))
+      .catch((err) => console.log("Error:", err)); 
+  },[]);
+
   function showUpdate(updateItem){
     setUpdatePopup(true)
     setUpdatedItem(updateItem)
@@ -200,7 +207,7 @@ function App() {
                       <input type="text" name="city" value={updateData.city} onChange={handleUpdate} required />
                     </div>
                     <div>
-                       <button type="submit">Add</button>
+                       <button type="submit">Update</button>
                     </div>  
           </form>}
         </div>

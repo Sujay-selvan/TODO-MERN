@@ -26,6 +26,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .add-user>input{
     width: 400px;
@@ -184,4 +185,76 @@ button{
 }
 .add-user>button{
     padding: 6px 10px;
+}
+
+@media screen and (max-width:542px) {
+    .overall{
+        padding: 0px;
+    }
+    .content{
+        width: 100%;
+        padding: 5px;
+    }
+    .add-user>button{
+        width: 100px;
+        height: 39px;
+        border-radius: 8px;
+        font-size: 12px;
+    }
+    th{
+        padding: 10px 2px;
+    }
+    td{
+        padding: 8px 2px;
+    }
+    td>button{
+        width: 100%;
+        height: 27px;
+        font-size: 12px;
+    }
+    .add-new{
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+        top: -450px;
+    }
+    .add-new>div>button{
+        width: 80%;
+        margin: auto;
+        margin-top: 20px;
+        background-color: green;
+        color: white;
+    }
+    .show-addNew{
+        top: 20px;
+    }
+
+    .update-new{
+        width: 95%;
+        background-color: gray;
+        margin: auto;
+        padding: 10px;
+        top: -450px;
+    }
+    .update-new>div{
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    .update-new>div>button{
+        width: 80%;
+       margin: auto;
+       margin-top: 20px;
+    }
+    .show-update{
+        top: 20px;
+    }
+    .head{
+        font-size: 15px;
+    }
+}
+
+.update-new>div>button{
+    background-color: green;
+    color: white;
 }
